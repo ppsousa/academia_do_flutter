@@ -14,10 +14,14 @@ void main() {
   // Apresente a quantidade de pacientes com mais de 20 anos
   // Agrupar os pacientes por familia(considerar o sobrenome) apresentar por familia.
 
-  var listaNew = pacientes.where((p) => int.parse(p.split('|')[1]) > 20);
-  print('--------------------------------------------------------------------------');
-  print('Quantidade de pacientes com mais de 20 anos: ${listaNew.length}');
-  print('--------------------------------------------------------------------------');
+  var pacientesMaiorVinte =
+      pacientes.where((p) => int.parse(p.split('|')[1]) > 20);
+  print(
+      '--------------------------------------------------------------------------');
+  print(
+      'Quantidade de pacientes com mais de 20 anos: ${pacientesMaiorVinte.length}');
+  print(
+      '--------------------------------------------------------------------------');
 
   List familiaImpressa = [];
   for (String registro in pacientes) {
@@ -25,16 +29,19 @@ void main() {
 
     if (familiaImpressa.contains(familia[1])) continue;
     print('Família ${familia[1]}');
-    print('--------------------------------------------------------------------------');
+    print(
+        '--------------------------------------------------------------------------');
 
     familiaImpressa.add(familia[1]);
 
     for (String detalhe in pacientes) {
       var dados = detalhe.split('|');
       if (dados[0].split(' ')[1] == familia[1]) {
-        print('Paciente: ${dados[0]}  Idade: ${dados[1]}   Profissão: ${dados[2]}   Estado: ${dados[3]} ');
+        print(
+            'Paciente: ${dados[0]}  Idade: ${dados[1]}   Profissão: ${dados[2]}   Estado: ${dados[3]} ');
       }
     }
-    print('--------------------------------------------------------------------------');
+    print(
+        '--------------------------------------------------------------------------');
   }
 }
